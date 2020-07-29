@@ -7,7 +7,7 @@ from driver.driver import get_driver
 from system_element import BASE_PATH
 
 
-class BaseActivity():
+class BasePage():
 
     def __init__(self, driver):
         '''
