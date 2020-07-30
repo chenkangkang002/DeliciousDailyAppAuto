@@ -20,6 +20,7 @@ def get_driver(appPakage='cn.missfresh.application',
         'unicodeKeyboard': True,    #开启Unicode输入法，保证输入稳定
         'resetKeyboard': True,      #unicode输入结束后，重置输入法
         'newCommandTimeout':600,    #appium服务等待发送新消息的时间
+        'automationName':'Uiautomator2',    #用于定位toast
         'noReset': True
     }
     driver = webdriver.Remote('http://localhost:4723/wd/hub', desired_capabilities)
