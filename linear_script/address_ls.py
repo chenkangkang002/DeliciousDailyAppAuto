@@ -1,10 +1,8 @@
 '''新增收货地址'''
 import time
 import unittest
-
 from appium import webdriver
 from selenium.webdriver.common.by import By
-from page.base_page import BasePage
 
 '''打开每日优鲜'''
 desired_capabilities = {
