@@ -42,7 +42,7 @@ class BasePage():
         # 获取时间并进行格式化
         start_time = time.strftime('%Y%m%d %H%M%S')
         # 拼接文件路径
-        filepath = '{}\\report\\image\\{}_{}.html'.format(BASE_PATH, func_name, start_time)
+        filepath = '{}\\report\\image\\{}_{}.png'.format(BASE_PATH, func_name, start_time)
         self.driver.save_screenshot(filepath)
         print('截图')
 
