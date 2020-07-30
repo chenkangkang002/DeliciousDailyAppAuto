@@ -51,11 +51,11 @@ class LoginPage(BasePage):
 
     def mlogin(self,phone):
         '''中途登录'''
-        self.phone(phone)
-        self.get_check_code()
-        self.check_code()
-        self.deal()
-        self.click_login()
-        text = self.assert_text(self.loc_assert)
-        self.screenshot('login')
+        self.phone(phone)  # 输入手机号
+        self.get_check_code()  # 点击【获取验证码】
+        self.check_code()  # 输入验证码
+        self.deal()  # 勾选协议
+        self.click_login()  # 点击【登录】
+        text = self.assert_text(self.loc_assert)  # 获取断言
+        self.screenshot('login')  # 截图
         return text
