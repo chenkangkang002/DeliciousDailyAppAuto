@@ -49,19 +49,6 @@ class LoginPage(BasePage):
         self.find_element(self.loc_click_login).click()
         print('点击登录')
 
-    def login(self,phone):
-        '''登录逻辑'''
-        self.click_me()
-        self.login_sign()
-        self.phone(phone)
-        self.get_check_code()
-        self.check_code()
-        self.deal()
-        self.click_login()
-        text = self.assert_text(self.loc_assert)
-        self.screenshot('login')
-        return text
-
     def mlogin(self,phone):
         '''中途登录'''
         self.phone(phone)
