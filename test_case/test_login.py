@@ -9,4 +9,4 @@ class LoginTestCase(BaseTestCase):
         login.login_sign()  # 调用LoginPage的login_sign()方法
         phone = '18380251182'
         text = login.mlogin(phone)  # 调用LoginPage的mlogin()方法
-        self.assertEqual('小鲜',text)  # 进行断言
+        self.assertEqual('小鲜', text)  # 进行断言

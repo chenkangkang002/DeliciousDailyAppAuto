@@ -1,9 +1,8 @@
 import time
 from appium.webdriver.common.touch_action import TouchAction
-from driver.driver import get_driver   #从文件中引入get_driver类
 
-def unlock(passwd):
-    driver = get_driver()      #实例化get_driver方法并赋值给driver
+def unlock(passwd,driver):
+    #driver = get_driver()      #实例化get_driver方法并赋值给driver
     ta = TouchAction(driver)
     driver.swipe(200, 500, 200, 200, 200)  # 向上滑动，弹出九宫格
     time.sleep(2)
@@ -18,5 +17,5 @@ def unlock(passwd):
     ta.perform()  # 提交
 
 
-passwd = [0, 1, 2, 5, 4, 3, 6, 7, 8]  # 确定密码的排列顺序
-unlock(passwd=passwd)
+# passwd = [0, 1, 2, 5, 4, 3, 6, 7, 8]  # 确定密码的排列顺序
+# unlock(passwd=passwd)
