@@ -1,6 +1,7 @@
 import unittest
 from driver.driver import get_driver
 from page.base_page import BasePage
+from page.unlock_page import unlock
 
 
 class BaseTestCase(unittest.TestCase):
