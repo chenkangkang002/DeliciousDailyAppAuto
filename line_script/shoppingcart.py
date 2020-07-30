@@ -34,16 +34,6 @@ time.sleep(1)
 driver.find_element(By.ID,'cn.missfresh.application:id/cartTab').click()
 time.sleep(1)
 #在购物车内添加商品
-#//androidx.recyclerview.widget.RecyclerView[@resource-id=\"cn.missfresh.application:id/rcv_product\"]/android.widget.RelativeLayout[2]/android.widget.ImageView[3]
-#//androidx.recyclerview.widget.RecyclerView[@resource-id=\"cn.missfresh.application:id/rcv_product\"]/android.widget.RelativeLayout[1]/android.widget.ImageView[3]
-#//androidx.recyclerview.widget.RecyclerView[@resource-id=\"cn.missfresh.application:id/rcv_product\"]/android.widget.RelativeLayout[1]/android.widget.ImageView[3]
-# path1 = '//androidx.recyclerview.widget.RecyclerView[@resource-id="cn.missfresh.application:id/rcv_product"]/android.widget.RelativeLayout[2]/android.widget.ImageView[3]'
-# path2 = '//androidx.recyclerview.widget.RecyclerView[@resource-id="cn.missfresh.application:id/rcv_product"]/android.widget.RelativeLayout[1]/android.widget.ImageView[3]'
-# driver.find_element(By.XPATH,path1).click()
-# #下拉刷新
-# swipe_to(driver,'down')
-# time.sleep(1)
-# driver.find_element(By.XPATH,path2).click()
 path1 = '//android.widget.RelativeLayout[1]/android.widget.ImageView[3]'
 path2 = '//android.widget.RelativeLayout[2]/android.widget.ImageView[4]'
 locator = driver.find_element(By.ID,'cn.missfresh.application:id/rcv_product')
@@ -56,10 +46,6 @@ locator.find_element(By.XPATH,path2).click()
 swipe_to(driver,'down')
 time.sleep(1)
 #查看购物车商品详情
-#//android.widget.RelativeLayout[@resource-id=\"cn.missfresh.application:id/ll_buy_product_bg\"]/android.widget.ImageView[2]
-#//androidx.recyclerview.widget.RecyclerView[@resource-id=\"cn.missfresh.application:id/rcv_product\"]/android.widget.LinearLayout[2]/android.widget.RelativeLayout[1]/android.widget.ImageView[2]
-#//androidx.recyclerview.widget.RecyclerView[@resource-id=\"cn.missfresh.application:id/rcv_product\"]/android.widget.LinearLayout[4]/android.widget.RelativeLayout[1]/android.widget.ImageView[2]
-#//android.widget.LinearLayout[2]/android.widget.RelativeLayout[1]/android.widget.ImageView[2]
 path = '//android.widget.LinearLayout[2]/android.widget.RelativeLayout[1]/android.widget.ImageView[2]'
 locator = driver.find_element(By.ID,'cn.missfresh.application:id/rcv_product')
 locator.find_element(By.XPATH,path).click()
