@@ -1,6 +1,6 @@
 '''登录用例'''
 from page.login_page import LoginPage
-from testcase.base_test import BaseTestCase
+from test_case.base_test import BaseTestCase
 
 
 class LoginTestCase(BaseTestCase):
