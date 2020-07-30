@@ -3,10 +3,10 @@
 '''
 from selenium.webdriver.common.by import By
 
-from page.base_page import BaseActivity
+from page.base_page import BasePage
 
 
-class ExamplesPage(BaseActivity):
+class ExamplesPage(BasePage):
 
     '''定位符'''
     loc_login_name = (By.ID, 'u_name')   #登录用户名
