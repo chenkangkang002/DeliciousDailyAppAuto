@@ -2,7 +2,6 @@
 from page.login_page import LoginPage
 from test_case.base_test import BaseTestCase
 
-
 class LoginTestCase(BaseTestCase):
     def test_login(self):
         login = LoginPage(self.driver)

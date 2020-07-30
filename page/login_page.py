@@ -61,3 +61,14 @@ class LoginPage(BasePage):
         text = self.assert_text(self.loc_assert)
         self.screenshot('login')
         return text
+
+    def mlogin(self,phone):
+        '''中途登录'''
+        self.phone(phone)
+        self.get_check_code()
+        self.check_code()
+        self.deal()
+        self.click_login()
+        text = self.assert_text(self.loc_assert)
+        self.screenshot('login')
+        return text
