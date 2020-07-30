@@ -1,4 +1,6 @@
 '''登录'''
+import time
+
 from selenium.webdriver.common.by import By
 from page.base_page import BasePage
 
@@ -16,37 +18,44 @@ class LoginPage(BasePage):
     def click_me(self):
         '''点击我的'''
         self.find_element(self.loc_my).click()
+        time.sleep(1)
         print('点击我的')
 
     def login_sign(self):
         '''点击登录/注册'''
         self.find_element(self.loc_login_sign).click()
+        time.sleep(1)
         print('点击登录/注册')
 
     def phone(self,phone):
         '''输入手机号'''
         self.find_element(self.loc_phone).send_keys(phone)
+        time.sleep(1)
         print('输入手机号')
 
     def get_check_code(self):
         '''点击获取验证码'''
         self.find_element(self.loc_get_check_code).click()
+        time.sleep(1)
         print('点击获取验证码')
 
     def check_code(self):
         '''输入验证码'''
         check_code = input('请输入验证码：')
         self.find_element(self.loc_check_code).send_keys(check_code)
+        time.sleep(1)
         print('\n输入验证码')
 
     def deal(self):
         '''勾选协议'''
         self.find_element(self.loc_deal).click()
+        time.sleep(3)
         print('勾选协议')
 
     def click_login(self):
         '''点击登录'''
         self.find_element(self.loc_click_login).click()
+        time.sleep(1)
         print('点击登录')
 
     def mlogin(self,phone):
@@ -57,5 +66,7 @@ class LoginPage(BasePage):
         self.deal()  # 勾选协议
         self.click_login()  # 点击【登录】
         text = self.assert_text(self.loc_assert)  # 获取断言
+        time.sleep(1)
         self.screenshot('login')  # 截图
+        time.sleep(1)
         return text
