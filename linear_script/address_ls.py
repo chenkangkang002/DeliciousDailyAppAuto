@@ -20,6 +20,7 @@ driver = webdriver.Remote('http://localhost:4723/wd/hub', desired_capabilities)
 driver.implicitly_wait(30)
 
 '''控件定位'''
+loc_my = (By.ID,'cn.missfresh.application:id/mineTab')  # 我的
 loc_click_address = (By.XPATH,'/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.View/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.LinearLayout/android.widget.LinearLayout[2]/androidx.recyclerview.widget.RecyclerView/android.widget.LinearLayout[7]')  # 【收货地址】定位
 loc_click_add_address = (By.ID,'cn.missfresh.application:id/btn_add_address')  # 【新增收货地址】定位
 loc_receiver = (By.ID,'cn.missfresh.application:id/et_edit_address_receiver')  # 收货人定位
@@ -41,6 +42,8 @@ keyword = '香山'
 doorplate = '701'
 
 '''实现步骤'''
+driver.find_element(*loc_my).click()  # 点击我的
+print('点击我的')
 driver.find_element(*loc_click_address).click()  # 点击收货地址
 print('点击收货地址')
 driver.find_element(*loc_click_add_address).click()  # 点击新增收货地址
