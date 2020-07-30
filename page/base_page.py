@@ -51,4 +51,28 @@ class BasePage():
         self.driver.quit()
         print('退出app')
 
-
+    def swipe_to(self,direction='up',count=1):
+        '''滑动'''
+        #获取窗口大小
+        size = self.driver.get_window_size(windowHandle='current')
+        x1 = size["width"]*0.2
+        y1 = size["height"]*0.7
+        x2 = size["width"]*0.5
+        y2 = size["height"]*0.5
+        x3 = size["width"]*0.7
+        y3 = size["height"]*0.2
+        #利用窗口大小设置滑动值
+        for i in range(count):
+            if direction == 'up':
+                self.driver.swipe(x2,y1,x2,y2)
+                time.sleep(1)
+            elif direction == 'left':
+                self.driver.swipe(x2, y2, x1, y2)
+                time.sleep(1)
+            elif direction == 'right':
+                self.driver.swipe(x2, y2, x3, y2)
+                time.sleep(1)
+            elif direction  == 'down':
+                self.driver.swipe(x2, y3, x2, y2)
+                time.sleep(1)
+            print('这是第%d次%s滑动'%(i+1,direction))
