@@ -30,7 +30,9 @@ class BasePage():
         :param loc: 控件的定位信息：(By.ID, 'value')
         :return: 被定为的控件的文本信息
         '''
-        return self.find_element(loc).text
+        ret = self.find_element(loc).text
+        print('获取断言')
+        return ret
 
     def screenshot(self, func_name):
         '''
@@ -42,5 +44,11 @@ class BasePage():
         # 拼接文件路径
         filepath = '{}\\report\\image\\{}_{}.html'.format(BASE_PATH, func_name, start_time)
         self.driver.save_screenshot(filepath)
+        print('截图')
+
+    def quit(self):
+        '''退出app'''
+        self.driver.quit()
+        print('退出app')
 
 

@@ -57,5 +57,5 @@ class LoginPage(BasePage):
         self.check_code()
         self.deal()
         self.click_login()
-        text = self.assert_result(self.loc_assert)
+        text = self.assert_text(self.loc_assert)
         return text
