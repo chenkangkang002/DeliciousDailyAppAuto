@@ -80,3 +80,7 @@ class SearchPage(BasePage):
         self.find_element(self.loc_submit_tv).click()
 
     '''页面功能'''
+    def search_goods(self, context):
+        '''在搜索商品页面搜索商品'''
+        self.input_search_box(context)
+        self.click_search_button()

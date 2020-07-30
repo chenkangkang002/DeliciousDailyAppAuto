@@ -70,3 +70,8 @@ class ClassifyPage(BasePage):
         ele.click()
 
     '''界面实现功能'''
+    def random_choose_goods(self):
+        '''在分类页面随机选择商品,点击进入商品详情页'''
+        self.click_top_navigations()
+        self.click_left_navigations()
+        self.click_goods_navigations()
