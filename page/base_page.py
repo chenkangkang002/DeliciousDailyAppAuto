@@ -1,6 +1,7 @@
 '''
 activity基类
 '''
+import random
 import time
 
 from driver.driver import get_driver
@@ -76,3 +77,40 @@ class BasePage():
                 self.driver.swipe(x2, y3, x2, y2)
                 time.sleep(1)
             print('这是第%d次%s滑动'%(i+1,direction))
+
+    def get_element_random(self, floc, cloc, last_loc='1'):
+        '''
+        通过上级定位符和下级的list定位符获取控件列表中的某个控件对象,随机获取
+        :param floc: 父级定位器，可唯一定位
+        :param cloc: 下级list定位器：(By.ID, 'value')
+        :param clast_loc: 第三个参数，布局下的最小一个控件定位器
+        :return: 列表中的一个随机控件对象，传递last_loc后返回布局下的一个最小控件
+        '''
+        # 判断入参是否为空
+        # if floc is None or cloc is None:
+        #     raise ValueError('上级定位符或list的定位符不能为空')
+
+        f_element = self.find_element(floc)
+        elements = f_element.find_elements(*cloc)
+        list_len = len(elements)
+        rand = random.randint(0, list_len - 1)
+        if last_loc == '1':
+            return elements[rand]
+        else:
+            last_ele = elements[rand].find_element(*last_loc)
+            return last_ele
+
+    def get_element(self, floc, cloc):
+        '''
+        从父类往下递归找符合条件的控件
+        :param floc: 父级定位器：ID
+        :param cloc: 子定位器：className
+        :return: 列表中的一个随机控件对象
+        '''
+        ele = self.driver.find_element_by_android_uiautomator('new '
+                                                              'UiSelector().resourceId("{}").fromParent('
+                                                              'new UiSelector().Id("{}"))'.format(floc, cloc))
+        return ele
+
+
+
