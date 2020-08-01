@@ -21,6 +21,7 @@ class ShoppingCartPage(BasePage):
     locator_addr_list = (By.ID, 'cn.missfresh.application:id/lv_address')
     locator_select_pay_way = (By.ID, 'cn.missfresh.application:id/confirm_recycler_view')
     locator_pay_button = (By.ID, 'cn.missfresh.application:id/tv_confirm')
+    locator_add_addr = (By.ID,'cn.missfresh.application:id/btn_add_address')
 
     def get_in_shoppingcart(self):
         '''进入购物车'''
@@ -121,6 +122,20 @@ class ShoppingCartPage(BasePage):
         loc = self.driver.find_element(*self.locator_addr_list)
         path = '//android.widget.LinearLayout[' + str(addr_index) + ']/android.widget.RelativeLayout[1]/android.widget.RelativeLayout[1]/android.widget.CheckBox[1]'
         loc.find_element(By.XPATH,path).click()
+
+    def edit_address(self,index=1,action='add'):
+        '''
+        新增或修改收货地址
+        index:收货地址顺序，默认为1（第一个）#index只对修改地址有效
+        action：新增(add)或修改(modify)收货地址，默认为add
+        '''
+        if action == 'add':
+            self.driver.find_element(*self.locator_add_addr).click()
+        elif action == 'modify':
+            #//android.widget.LinearLayout[1]/android.widget.RelativeLayout[1]/android.widget.FrameLayout[1]/android.widget.TextView[1]
+            loc = self.driver.find_element(*self.locator_addr_list)
+            path = '//android.widget.LinearLayout[' + str(index) + ']/android.widget.RelativeLayout[1]/android.widget.FrameLayout[1]/android.widget.TextView[1]'
+            loc.find_element(By.XPATH,path).click()
 
     def select_pay_way(self,pay_index=5):
         '''
